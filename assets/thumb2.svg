@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="#041426"/>
+  <g fill="url(#g2)" opacity="0.14">
+    <rect x="60" y="50" width="1080" height="500" rx="20"/>
+  </g>
+  <text x="80" y="120" fill="#dbefff" font-family="Merriweather, serif" font-size="36">Narratives & network effects</text>
+</svg>

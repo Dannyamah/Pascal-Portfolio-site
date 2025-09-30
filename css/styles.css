@@ -1,0 +1,217 @@
+/* Base styles */
+:root{
+  --bg:#0f1720;
+  --card:#0f1a24;
+  --muted:#9aa6b2;
+  --accent:#7dd3fc;
+  --accent-2:#60a5fa;
+  --text:#e6eef6;
+  --glass: rgba(255,255,255,0.04);
+  --radius:12px;
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(93,170,255,0.06), transparent), radial-gradient(900px 400px at 90% 80%, rgba(125,211,252,0.04), transparent), linear-gradient(180deg, #071023 0%, #071826 60%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:3rem 1.25rem}
+.site-header{backdrop-filter:saturate(140%) blur(6px);position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(10,15,20,0.6), rgba(10,15,20,0.35));border-bottom:1px solid rgba(255,255,255,0.03)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.brand{display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none}
+.logo{width:44px;height:44px}
+.brand-text{font-weight:600;letter-spacing:.6px}
+.nav{display:flex;align-items:center;gap:1rem}
+.nav-list{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+.nav-list a{color:var(--muted);text-decoration:none;padding:.5rem .6rem;border-radius:8px}
+.nav-list a:hover{color:var(--text);background:var(--glass)}
+.nav-toggle{display:none;background:none;border:0;color:var(--text)}
+.hamburger{display:block;width:22px;height:2px;background:var(--text);position:relative}
+.hamburger::after,.hamburger::before{content:"";position:absolute;height:2px;width:22px;background:var(--text);left:0}
+.hamburger::before{top:-7px}
+.hamburger::after{top:7px}
+
+.hero{padding:4rem 0}
+.hero-inner{display:grid;grid-template-columns:1fr 320px;gap:2.5rem;align-items:center}
+.hero{position:relative;overflow:visible}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg, transparent, rgba(2,6,23,0.3));}
+.hero-text h1{font-family:Merriweather, Georgia, serif;font-size:2.25rem;margin:0 0 .6rem}
+.lead{color:var(--muted);max-width:48ch}
+.btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;text-decoration:none;color:var(--text);border:1px solid rgba(255,255,255,0.04);background:transparent}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04202f;font-weight:600;border:none}
+.btn-outline{border:1px solid rgba(255,255,255,0.06)}
+.hero-cta{margin:1.25rem 0;display:flex;gap:.75rem}
+.social-row{display:flex;gap:.6rem;margin-top:1rem}
+.social{color:var(--muted);text-decoration:none;font-size:.95rem}
+
+.hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.03), transparent);padding:1.25rem;border-radius:var(--radius);display:flex;gap:.75rem;align-items:center;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+.hero-card{transition:transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s}
+.hero-card:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 22px 50px rgba(2,6,23,0.7)}
+.profile-img{width:84px;height:84px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:block}
+.card-meta h3{margin:0;font-size:1.05rem}
+.muted{color:var(--muted)}
+
+.about h2,.work h2,.writing h2,.contact h2{margin-top:0;font-family:Merriweather, serif}
+.skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;list-style:none;padding:0;margin-top:1rem}
+.skills-grid li{background:var(--card);padding:.6rem;border-radius:10px}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.card{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:12px}
+.card{transition:transform .28s ease,box-shadow .28s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(1,8,15,0.6)}
+.card-link{color:var(--accent);text-decoration:none;font-weight:600}
+
+.writing-list{margin-top:1rem}
+.writing-list a{color:var(--muted);text-decoration:none}
+.writing-list a:hover{color:var(--accent)}
+
+.contact-row{display:flex;gap:.75rem;margin-top:1rem}
+
+.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:1.25rem 0;margin-top:3rem;color:var(--muted)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between}
+.footer-links a{color:var(--muted);text-decoration:none;margin-left:1rem}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(18px);transition:all .8s cubic-bezier(.2,.9,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+
+/* Decorative animated blobs */
+.decor-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:0.7;transform:translateZ(0)}
+.blob-1{width:420px;height:420px;left:-80px;top:-80px;background:linear-gradient(135deg,var(--accent),#4f46e5);animation:float1 12s ease-in-out infinite}
+.blob-2{width:320px;height:320px;right:-100px;top:80px;background:linear-gradient(135deg,#60a5fa,#7c3aed);animation:float2 16s ease-in-out infinite}
+.blob-3{width:220px;height:220px;left:20%;bottom:-80px;background:linear-gradient(135deg,#0891b2,#60a5fa);animation:float3 10s ease-in-out infinite}
+
+@keyframes float1{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(24px) rotate(6deg)}100%{transform:translateY(0) rotate(0)}}
+@keyframes float2{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(-4deg)}100%{transform:translateY(0) rotate(0)}}
+@keyframes float3{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(12px) rotate(3deg)}100%{transform:translateY(0) rotate(0)}}
+
+/* subtle tilting effect for hero card */
+.hero-card.tilt{transition:transform .12s linear}
+
+
+/* Responsive */
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .cards{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:680px){
+  .nav-list{display:none}
+  .nav-toggle{display:block}
+  .container{padding:2rem 1rem}
+  .skills-grid{grid-template-columns:1fr}
+}
+
+/* Two-column layout similar to Drake demo */
+.layout{display:grid;grid-template-columns:300px 1fr;gap:2rem;align-items:start;position:relative}
+.left-panel{position:relative;z-index:30}
+.right-panel{position:relative;z-index:40}
+.profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1.25rem;border-radius:14px;box-shadow:0 18px 40px rgba(2,6,23,0.5);display:flex;flex-direction:column;align-items:center;gap:.75rem}
+.profile-card{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+.profile-card.is-visible{opacity:1;transform:translateY(0)}
+.profile-large{width:120px;height:120px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:block}
+.social-vertical{display:flex;flex-direction:column;gap:.5rem;margin-top:.8rem}
+.social-vertical a{display:inline-block;background:var(--glass);padding:.45rem .6rem;border-radius:8px;color:var(--muted);text-decoration:none}
+
+@media (max-width:1000px){
+  .layout{grid-template-columns:1fr;}
+  .profile-card{position:relative;top:0}
+  .left-panel{order:2}
+  .right-panel{order:1}
+}
+
+/* sticky profile card on larger screens */
+@media (min-width:1001px){
+  /* make profile card fixed so it doesn't scroll with content and remains visible */
+  .profile-card{position:fixed;left:24px;top:96px;width:260px}
+  /* add offset to the main layout to avoid content underneath the fixed card */
+  .layout{grid-template-columns:320px 1fr}
+}
+
+/* Drawer backdrop (covers page when drawer open) */
+.drawer-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);z-index:110;opacity:0;pointer-events:none;transition:opacity .28s}
+.drawer-backdrop[aria-hidden="false"]{opacity:1;pointer-events:auto}
+
+/* focus styles for keyboard users */
+:focus{outline:2px solid rgba(125,211,252,0.18);outline-offset:2px}
+.icon-btn:focus{box-shadow:0 0 0 3px rgba(125,211,252,0.12)}
+
+/* Rounded social icon buttons */
+.icon-btn{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);color:var(--muted);text-decoration:none}
+.icon-btn svg{width:18px;height:18px}
+.icon-btn:hover{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04202f}
+.social-vertical{display:flex;flex-direction:column;gap:.6rem;margin-top:.8rem}
+
+/* Top nav: hide list on desktop, use drawer toggle */
+.nav-list{display:none}
+.nav-toggle{display:block}
+
+/* Nav drawer */
+.nav-drawer{position:fixed;top:0;right:0;height:100vh;width:320px;background:linear-gradient(180deg,#02121b, #071826);box-shadow:-24px 40px 120px rgba(2,6,23,0.6);z-index:120;padding:2rem;transform:translateX(110%);transition:transform .36s cubic-bezier(.2,.9,.2,1)}
+.nav-drawer[aria-hidden="false"]{transform:translateX(0)}
+.nav-drawer-list{list-style:none;padding:0;margin:1.25rem 0}
+.nav-drawer-list li{margin:0.6rem 0}
+.nav-drawer-list a{color:var(--text);text-decoration:none;font-weight:600}
+.nav-close{position:absolute;left:12px;top:12px;background:none;border:0;color:var(--muted);font-size:1.25rem}
+
+/* Mail button inside left panel */
+.contact-quick .btn svg{margin-right:.6rem;vertical-align:middle}
+
+@media (max-width:680px){
+  .nav-list{display:none}
+  .nav-toggle{display:block}
+}
+
+/* Preloader styles */
+#preloader{position:fixed;inset:0;background:linear-gradient(180deg, rgba(3,7,12,0.95), rgba(3,7,12,0.9));display:flex;align-items:center;justify-content:center;z-index:80}
+.preloader-inner{display:flex;flex-direction:row;align-items:center;gap:1rem}
+.preloader .pen{animation:pen-bob 1.6s ease-in-out infinite}
+.preloader .pen svg{filter:drop-shadow(0 6px 18px rgba(0,0,0,0.6))}
+.preloader .type{color:var(--accent);font-family:Merriweather,serif;font-size:1.05rem}
+
+@keyframes pen-bob{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-6deg)}100%{transform:translateY(0) rotate(0)}}
+
+/* Typewriter cursor */
+.type #typewriter::after{content:"|";display:inline-block;margin-left:.25rem;animation:blink 1s steps(2,end) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+/* hide preloader once .hidden applied */
+.preloader.hidden{opacity:0;pointer-events:none;transition:opacity .45s ease}
+
+/* Spiral background */
+.spiral-bg{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:0.08;transform-origin:center center;transition:transform .12s linear}
+.spiral-svg{width:120%;height:120%;display:block;transform-origin:center center}
+
+/* About cards */
+.about-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.about-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1.1rem;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.45);transition:transform .38s cubic-bezier(.2,.9,.2,1), box-shadow .38s}
+.about-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 30px 60px rgba(2,6,23,0.55)}
+.about-card h3{margin:0 0 .4rem}
+
+/* Article grid */
+.article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.article-card{display:flex;flex-direction:column;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.45);transition:transform .32s ease, box-shadow .32s ease}
+.article-card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 36px 80px rgba(2,6,23,0.6)}
+.thumb{height:140px;background-size:cover;background-position:center}
+.thumb-1{background-image:url('../assets/wallet-pascal.webp');background-size:cover}
+.thumb-2{background-image:url('../assets/pascal-soon.webp');background-size:cover}
+.thumb-3{background-image:url('../assets/thumb3.svg');background-size:cover}
+.article-body{padding:1rem;display:flex;flex-direction:column;gap:.6rem}
+.article-body h3{margin:0}
+
+/* micro-animation for card links */
+.card-link{display:inline-flex;align-items:center;gap:.4rem;position:relative}
+.card-link::after{content:'→';margin-left:.5rem;transform:translateX(-6px);opacity:0;transition:transform .2s ease,opacity .2s}
+.article-card:hover .card-link::after{transform:translateX(0);opacity:1}
+
+@media (max-width:900px){
+  .about-cards{grid-template-columns:1fr}
+  .article-grid{grid-template-columns:1fr}
+}
