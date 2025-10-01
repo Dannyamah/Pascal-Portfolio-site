@@ -77,7 +77,7 @@ if(heroCard && hero){
 // Preloader: typewriter + hide on load
 const preloader = document.getElementById('preloader');
 const typer = document.getElementById('typewriter');
-const message = "Drafting ideas into clear DeFi writing...";
+const message = "Narrative building and data backed research...";
 function typeText(el, text, delay=60){
   return new Promise(res=>{
     let i=0;
