@@ -203,6 +203,10 @@ body{
 .thumb-1{background-image:url('../assets/wallet-pascal.webp');background-size:cover}
 .thumb-2{background-image:url('../assets/pascal-soon.webp');background-size:cover}
 .thumb-3{background-image:url('../assets/thumb3.svg');background-size:cover}
+.thumb-3{background-image:url('../assets/other articles.jpg');background-size:cover}
+
+.subhead{font-size:1.05rem;margin:0 0.25rem 0.6rem}
+.about-cards ul, .about-cards p ul{margin:0;padding-left:1.1rem}
 .article-body{padding:1rem;display:flex;flex-direction:column;gap:.6rem}
 .article-body h3{margin:0}
 
