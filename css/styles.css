@@ -46,9 +46,40 @@ body{
 .btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;text-decoration:none;color:var(--text);border:1px solid rgba(255,255,255,0.04);background:transparent}
 .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04202f;font-weight:600;border:none}
 .btn-outline{border:1px solid rgba(255,255,255,0.06)}
-.hero-cta{margin:1.25rem 0;display:flex;gap:.75rem}
-.social-row{display:flex;gap:.6rem;margin-top:1rem}
-.social{color:var(--muted);text-decoration:none;font-size:.95rem}
+.hero-cta{margin:1.25rem 0;display:flex;flex-direction:column;align-items:flex-start;gap:.75rem}
+
+/* Hero + Sidebar social icons unified */
+.social-row,
+.social-vertical {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;   /* same size for hero + sidebar */
+  height: 44px;
+  border-radius: 12px;
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.icon-btn i {
+  font-size: 20px; /* slightly bigger for consistency */
+  line-height: 1;
+}
+
+
+.icon-btn:hover {
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color: #04202f; /* dark inside gradient */
+}
 
 .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.03), transparent);padding:1.25rem;border-radius:var(--radius);display:flex;gap:.75rem;align-items:center;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
 .hero-card{transition:transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s}
@@ -109,7 +140,7 @@ body{
   .skills-grid{grid-template-columns:1fr}
 }
 
-/* Two-column layout similar to Drake demo */
+/* Two-column layout */
 .layout{display:grid;grid-template-columns:300px 1fr;gap:2rem;align-items:start;position:relative}
 .left-panel{position:relative;z-index:30}
 .right-panel{position:relative;z-index:40}
@@ -117,8 +148,6 @@ body{
 .profile-card{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
 .profile-card.is-visible{opacity:1;transform:translateY(0)}
 .profile-large{width:120px;height:120px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:block}
-.social-vertical{display:flex;flex-direction:column;gap:.5rem;margin-top:.8rem}
-.social-vertical a{display:inline-block;background:var(--glass);padding:.45rem .6rem;border-radius:8px;color:var(--muted);text-decoration:none}
 
 @media (max-width:1000px){
   .layout{grid-template-columns:1fr;}
@@ -129,27 +158,19 @@ body{
 
 /* sticky profile card on larger screens */
 @media (min-width:1001px){
-  /* make profile card fixed so it doesn't scroll with content and remains visible */
   .profile-card{position:fixed;left:24px;top:96px;width:260px}
-  /* add offset to the main layout to avoid content underneath the fixed card */
   .layout{grid-template-columns:320px 1fr}
 }
 
-/* Drawer backdrop (covers page when drawer open) */
+/* Drawer backdrop */
 .drawer-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);z-index:110;opacity:0;pointer-events:none;transition:opacity .28s}
 .drawer-backdrop[aria-hidden="false"]{opacity:1;pointer-events:auto}
 
-/* focus styles for keyboard users */
+/* focus styles */
 :focus{outline:2px solid rgba(125,211,252,0.18);outline-offset:2px}
 .icon-btn:focus{box-shadow:0 0 0 3px rgba(125,211,252,0.12)}
 
-/* Rounded social icon buttons */
-.icon-btn{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);color:var(--muted);text-decoration:none}
-.icon-btn svg{width:18px;height:18px}
-.icon-btn:hover{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04202f}
-.social-vertical{display:flex;flex-direction:column;gap:.6rem;margin-top:.8rem}
-
-/* Top nav: hide list on desktop, use drawer toggle */
+/* Top nav mobile */
 .nav-list{display:none}
 .nav-toggle{display:block}
 
@@ -162,14 +183,16 @@ body{
 .nav-close{position:absolute;left:12px;top:12px;background:none;border:0;color:var(--muted);font-size:1.25rem}
 
 /* Mail button inside left panel */
-.contact-quick .btn svg{margin-right:.6rem;vertical-align:middle}
+.contact-quick .btn i{margin-right:.6rem;vertical-align:middle}
+
+.social i{font-size:18px}
 
 @media (max-width:680px){
   .nav-list{display:none}
   .nav-toggle{display:block}
 }
 
-/* Preloader styles */
+/* Preloader */
 #preloader{position:fixed;inset:0;background:linear-gradient(180deg, rgba(3,7,12,0.95), rgba(3,7,12,0.9));display:flex;align-items:center;justify-content:center;z-index:80}
 .preloader-inner{display:flex;flex-direction:row;align-items:center;gap:1rem}
 .preloader .pen{animation:pen-bob 1.6s ease-in-out infinite}
@@ -182,7 +205,7 @@ body{
 .type #typewriter::after{content:"|";display:inline-block;margin-left:.25rem;animation:blink 1s steps(2,end) infinite}
 @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
 
-/* hide preloader once .hidden applied */
+/* hide preloader */
 .preloader.hidden{opacity:0;pointer-events:none;transition:opacity .45s ease}
 
 /* Spiral background */
